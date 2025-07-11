@@ -55,3 +55,11 @@ C:\Users\Eivazi\ChatBox\ChatBox\ChatBox\WebApplication1\obj\Debug\net8.0\refint\
 C:\Users\Eivazi\ChatBox\ChatBox\ChatBox\WebApplication1\obj\Debug\net8.0\ChatBox.pdb
 C:\Users\Eivazi\ChatBox\ChatBox\ChatBox\WebApplication1\obj\Debug\net8.0\ChatBox.genruntimeconfig.cache
 C:\Users\Eivazi\ChatBox\ChatBox\ChatBox\WebApplication1\obj\Debug\net8.0\ref\ChatBox.dll
+C:\Users\Alireza23\AmnPardaz\ChatBox\ChatBox\WebApplication1\obj\Debug\net8.0\ChatBox.csproj.AssemblyReference.cache
+C:\Users\Alireza23\AmnPardaz\ChatBox\ChatBox\WebApplication1\obj\Debug\net8.0\ChatBox.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Alireza23\AmnPardaz\ChatBox\ChatBox\WebApplication1\obj\Debug\net8.0\ChatBox.AssemblyInfoInputs.cache
+C:\Users\Alireza23\AmnPardaz\ChatBox\ChatBox\WebApplication1\obj\Debug\net8.0\ChatBox.AssemblyInfo.cs
+C:\Users\Alireza23\AmnPardaz\ChatBox\ChatBox\WebApplication1\obj\Debug\net8.0\ChatBox.csproj.CoreCompileInputs.cache
+C:\Users\Alireza23\AmnPardaz\ChatBox\ChatBox\WebApplication1\obj\Debug\net8.0\ChatBox.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Alireza23\AmnPardaz\ChatBox\ChatBox\WebApplication1\obj\Debug\net8.0\ChatBox.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Alireza23\AmnPardaz\ChatBox\ChatBox\WebApplication1\obj\Debug\net8.0\ChatBox.sourcelink.json

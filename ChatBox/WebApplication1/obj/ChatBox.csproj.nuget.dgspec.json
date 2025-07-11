@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Eivazi\\ChatBox\\ChatBox\\ChatBox\\WebApplication1\\ChatBox.csproj": {}
+    "C:\\Users\\Alireza23\\AmnPardaz\\ChatBox\\ChatBox\\WebApplication1\\ChatBox.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Eivazi\\ChatBox\\ChatBox\\ChatBox\\WebApplication1\\ChatBox.csproj": {
+    "C:\\Users\\Alireza23\\AmnPardaz\\ChatBox\\ChatBox\\WebApplication1\\ChatBox.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Eivazi\\ChatBox\\ChatBox\\ChatBox\\WebApplication1\\ChatBox.csproj",
+        "projectUniqueName": "C:\\Users\\Alireza23\\AmnPardaz\\ChatBox\\ChatBox\\WebApplication1\\ChatBox.csproj",
         "projectName": "ChatBox",
-        "projectPath": "C:\\Users\\Eivazi\\ChatBox\\ChatBox\\ChatBox\\WebApplication1\\ChatBox.csproj",
-        "packagesPath": "C:\\Users\\Eivazi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Eivazi\\ChatBox\\ChatBox\\ChatBox\\WebApplication1\\obj\\",
+        "projectPath": "C:\\Users\\Alireza23\\AmnPardaz\\ChatBox\\ChatBox\\WebApplication1\\ChatBox.csproj",
+        "packagesPath": "C:\\Users\\Alireza23\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Alireza23\\AmnPardaz\\ChatBox\\ChatBox\\WebApplication1\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Eivazi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Alireza23\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,7 +26,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Users\\Eivazi\\Downloads": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -45,7 +44,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.300"
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net8.0": {
@@ -101,7 +100,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

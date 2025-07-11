@@ -1,87 +1,38 @@
-﻿using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
-using ChatBox.Data;
-using ChatBox.Models;
+﻿using ChatAppBackend.DTOs;
+using ChatAppBackend.Services;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.IdentityModel.Tokens;
 
-namespace ChatBox.Controllers
+namespace ChatAppBackend.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("api/[controller]")]
     public class AuthController : ControllerBase
     {
-        private readonly ChatContext _context;
-        private readonly IConfiguration _configuration;
+        private readonly AuthService _authService;
 
-        public AuthController(ChatContext context, IConfiguration configuration)
+        public AuthController(AuthService authService)
         {
-            _context = context;
-            _configuration = configuration;
+            _authService = authService;
         }
 
         [HttpPost("register")]
-        public async Task<IActionResult> Register(UserRegisterDto userDto)
+        public async Task<IActionResult> Register(UserRegisterDto dto)
         {
-            if (_context.Users.Any(u => u.Username == userDto.Username))
-                return BadRequest("Username already exists");
+            if (await _authService.UserExists(dto.Username))
+                return BadRequest("User already exists");
 
-            var user = new User
-            {
-                Username = userDto.Username,
-                PasswordHash = BCrypt.Net.BCrypt.HashPassword(userDto.Password)
-            };
-
-            _context.Users.Add(user);
-            await _context.SaveChangesAsync();
-
-            return Ok(new { message = "Registration successful" });
+            var user = await _authService.Register(dto);
+            return Ok(new { user.Id, user.Username });
         }
 
         [HttpPost("login")]
-        public IActionResult Login(UserLoginDto userDto)
+        public async Task<IActionResult> Login(UserLoginDto dto)
         {
-            var user = _context.Users.FirstOrDefault(u => u.Username == userDto.Username);
-            if (user == null || !BCrypt.Net.BCrypt.Verify(userDto.Password, user.PasswordHash))
-                return Unauthorized("Invalid credentials");
+            var token = await _authService.Login(dto);
+            if (token == null)
+                return Unauthorized();
 
-            var token = GenerateJwtToken(user);
             return Ok(new { token });
         }
-
-        private string GenerateJwtToken(User user)
-        {
-            var claims = new[]
-            {
-                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-                new Claim(ClaimTypes.Name, user.Username)
-            };
-
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(
-                _configuration["Jwt:Key"]));
-            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-
-            var token = new JwtSecurityToken(
-                issuer: _configuration["Jwt:Issuer"],
-                audience: _configuration["Jwt:Audience"],
-                claims: claims,
-                expires: DateTime.Now.AddHours(2),
-                signingCredentials: creds);
-
-            return new JwtSecurityTokenHandler().WriteToken(token);
-        }
-    }
-
-    public class UserRegisterDto
-    {
-        public string Username { get; set; }
-        public string Password { get; set; }
-    }
-
-    public class UserLoginDto
-    {
-        public string Username { get; set; }
-        public string Password { get; set; }
     }
 }
