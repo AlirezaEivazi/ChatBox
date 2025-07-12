@@ -11,7 +11,11 @@ using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.Filters;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
-var builder = WebApplication.CreateBuilder(args);
+var builder = WebApplication.CreateBuilder(new WebApplicationOptions
+{
+    Args = args,
+    WebRootPath = "wwwroot" 
+});
 
 // 1. Load Configuration
 var config = builder.Configuration;
@@ -20,9 +24,18 @@ var connectionString = config.GetConnectionString("DefaultConnection")
 var jwtKey = config["Jwt:Key"]
     ?? throw new InvalidOperationException("JWT secret key not configured");
 
-// 2. Services
+// Add services to the container
 builder.Services.AddDbContext<ChatAppDbContext>(options =>
-    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
+    options.UseMySql(
+        connectionString,
+        new MariaDbServerVersion(new Version(10, 5, 12)), // Match your MariaDB version
+        mySqlOptions =>
+        {
+            mySqlOptions.EnableRetryOnFailure(
+                maxRetryCount: 5,
+                maxRetryDelay: TimeSpan.FromSeconds(30),
+                errorNumbersToAdd: null);
+        }));
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
